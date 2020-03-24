@@ -1,0 +1,63 @@
+mdl = joblib.load("/Users/tasrifahmed/PyProjects/final_project/product_model.pkl")
+        n_data = request.data
+        new_data = pd.get_dummies(n_data)
+        print(new_data)
+        X = np.array(list(new_data.values()))
+        print(X)
+        y_pred = mdl.predict(X)
+        newdf = pd.DataFrame(y_pred, columns=['class'])
+        newdf = newdf.replace({1: 'Low', 2: 'Medium', 3: 'High'})
+        print(newdf)
+        return JsonResponse('Your Status is {}'.format(newdf), safe=False)
+    except ValueError as e:
+        return Response(e.args[0], status.HTTP_400_BAD_REQUEST)
+
+
+
+
+
+
+             <p class="text-muted m-b-30">Here are examples of <code
+                                                    class="highlighter-rouge">.form-control</code> applied to each
+                                                textual HTML5 <code class="highlighter-rouge">&lt;input&gt;</code> <code
+                                                        class="highlighter-rouge">type</code>.</p>
+
+                                            <div class="form-group row">
+                                                <label for="example-text-input" class="col-sm-2 col-form-label">Text</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="text" value="Category">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for="example-tel-input" class="col-sm-2 col-form-label">Telephone</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="tel" value="1-(555)-555-5555" id="example-tel-input">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="example-number-input" class="col-sm-2 col-form-label">Number</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" type="number" value="42" id="example-number-input">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Custom Select</label>
+                                                <div class="col-sm-10">
+                                                    <select class="custom-select">
+                                                        <option selected>Open this select menu</option>
+                                                        <option value="1">One</option>
+                                                        <option value="2">Two</option>
+                                                        <option value="3">Three</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                    <div class="text-right m-t-15">
+                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">
+                                                            Submit
+                                                        </button>
+                                                    </div>
+                                                </div>

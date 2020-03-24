@@ -1,0 +1,253 @@
+{% load static %}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+        <title>Smart Inventory System</title>
+        <meta content="Admin Dashboard" name="description" />
+        <meta content="Themesbrand" name="author" />
+        <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+
+        <link rel="stylesheet" href="{% static 'plugins/morris/morris.css' %}">
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'css/metismenu.min.css'%}" rel="stylesheet" type="text/css">
+        <link href="{% static 'css/icons.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'plugins/fullcalendar/css/fullcalendar.min.css' %}" rel="stylesheet" type="text/css">
+
+         <!-- DataTables -->
+        <link href="{% static 'plugins/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+        <link href="{% static 'plugins/datatables/buttons.bootstrap4.min.css' %}" rel="stylesheet" type="text/css" />
+
+    </head>
+
+    <body>
+
+        <!-- Begin page -->
+        <div id="wrapper">
+
+            <!-- Top Bar Start -->
+            <div class="topbar">
+
+                <!-- LOGO -->
+
+
+                <nav class="navbar-custom">
+
+                    <ul class="navbar-right d-flex list-inline float-right mb-0">
+                        <li class="dropdown notification-list d-none d-sm-block">
+                        </li>
+                        <li class="dropdown notification-list">
+                            <div class="dropdown notification-list nav-pro-img">
+                                <a class="dropdown-toggle nav-link arrow-none waves-effect nav-user waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                    <img src="{% static 'images/users/user-4.jpg' %}" alt="user" class="rounded-circle">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                                    <!-- item-->
+                                    <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle m-r-5"></i> Profile</a>
+                                    <a class="dropdown-item" href="#"><i class="mdi mdi-wallet m-r-5"></i> My Wallet</a>
+                                    <div class="dropdown-divider"></div>
+
+                                    <a class="dropdown-item text-danger" href="/"><i class="mdi mdi-power text-danger"></i> Logout</a>
+                                </div>                                                                    
+                            </div>
+                        </li>
+
+                    </ul>
+
+                    <ul class="list-inline menu-left mb-0">
+                        <li class="float-left">
+                            <button class="button-menu-mobile open-left waves-effect waves-light">
+                                <i class="mdi mdi-menu"></i>
+                            </button>
+                        </li>
+                    </ul>
+
+                </nav>
+
+            </div>
+            <!-- Top Bar End -->
+
+            <!-- ========== Left Sidebar Start ========== -->
+            <div class="left side-menu">
+                <div class="slimscroll-menu" id="remove-scroll">
+
+                    <!--- Sidemenu -->
+                    <div id="sidebar-menu">
+                        <!-- Left Menu Start -->
+                        <ul class="metismenu" id="side-menu">
+                            <li class="menu-title">Main</li>
+                            <li>
+                                <a href="dashboard.html" class="waves-effect">
+                                    <i class="mdi mdi-home"></i> <span> Dashboard </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="calendar.html" class="waves-effect"><i class="mdi mdi-calendar-check"></i><span> Employee Scheduling </span></a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-atom"></i><span> Product  <span class="float-right menu-arrow"><i class="mdi mdi-plus"></i></span></span></a>
+                                <ul class="submenu">
+                                    <li><a href="datatable.html"> Item List </a></li>
+                                    <li><a href="category.html"> Category List</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-altimeter"></i><span> Inventory  <span class="float-right menu-arrow"><i class="mdi mdi-plus"></i></span></span></a>
+                                <ul class="submenu">
+                                    <li><a href="form.html"> Predict Inventory Status </a></li>
+                                    <li><a href="sold.html"> List of Sold Items </a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-account-box"></i><span> Profile  <span class="float-right menu-arrow"><i class="mdi mdi-plus"></i></span></span></a>
+                                <ul class="submenu">
+                                    <li><a href="Profile_form.html"> Create Profile </a></li>
+                                    <li><a href="category.html"> Category List</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-atom"></i><span> Task  <span class="float-right menu-arrow"><i class="mdi mdi-plus"></i></span></span></a>
+                                <ul class="submenu">
+                                    <li><a href="datatable.html"> Create Task </a></li>
+                                    <li><a href="category.html"> Category List</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    <!-- Sidebar -->
+                    <div class="clearfix"></div>
+
+                </div>
+                <!-- Sidebar -left -->
+
+            </div>
+            <!-- Left Sidebar End -->
+
+            <!-- ============================================================== -->
+            <!-- Start right Content here -->
+            <!-- ============================================================== -->
+                <div class="content-page">
+                <!-- Start content -->
+
+
+                {% block content %}
+
+
+
+
+
+
+
+                {% endblock %}
+
+
+
+
+
+
+                <footer class="footer">
+                    © 2020 SIS <span class="d-none d-sm-inline-block">
+                </footer>
+
+            </div>
+
+
+            <!-- ============================================================== -->
+            <!-- End Right content here -->
+            <!-- ============================================================== -->
+
+
+        </div>
+        <!-- END wrapper -->
+            
+
+        <!-- jQuery  -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'js/metisMenu.min.js' %}"></script>
+        <script src="{% static 'js/jquery.slimscroll.js' %}"></script>
+        <script src="{% static 'js/waves.min.js' %}"></script>
+
+        <script src="{% static 'plugins/jquery-sparkline/jquery.sparkline.min.js' %}"></script>
+
+        <!-- Peity JS -->
+        <script src="{% static 'plugins/peity/jquery.peity.min.js' %}"></script>
+
+        <script src="{% static 'plugins/morris/morris.min.js' %}"></script>
+        <script src="{% static 'plugins/raphael/raphael-min.js' %}"></script>
+
+        <script src="{% static 'pages/dashboard.js' %}"></script>
+
+
+        <!-- Required datatable js -->
+        <script src="{% static 'plugins/datatables/jquery.dataTables.min.js' %}"></script>
+        <script src="{% static 'plugins/datatables/dataTables.bootstrap4.min.js' %}"></script>
+        <!-- Buttons examples -->
+        <script src="{% static 'plugins/datatables/dataTables.buttons.min.js' %}"></script>
+        <script src="{% static 'plugins/datatables/buttons.bootstrap4.min.js' %}"></script>
+        <script src="{% static 'plugins/datatables/jszip.min.js' %}"></script>
+        <script src="{% static 'plugins/datatables/pdfmake.min.js' %}"></script>
+        <script src="{% static 'plugins/datatables/vfs_fonts.js' %}"></script>
+        <script src="{% static 'plugins/datatables/buttons.html5.min.js' %}"></script>
+        <script src="{% static 'plugins/datatables/buttons.print.min.js' %}"></script>
+        <script src="{% static 'plugins/datatables/buttons.colVis.min.js' %}"></script>
+        <!-- Responsive examples -->
+        <script src="{% static 'plugins/datatables/dataTables.responsive.min.js' %}"></script>
+        <script src="{% static 'plugins/datatables/responsive.bootstrap4.min.js' %}"></script>
+
+        <!-- Datatable init js -->
+        <script src="{% static 'pages/datatables.init.js' %}"></script>
+
+
+        <!-- Jquery-Ui -->
+        <script src="{% static 'plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+        <script src="{% static 'plugins/moment/moment.js' %}"></script>
+        <script src='{% static 'plugins/fullcalendar/js/fullcalendar.min.js'%}'></script>
+        <script src="{% static 'pages/calendar-init.js' %}"></script>
+
+
+
+        <!-- App js -->
+        <script src="{% static 'js/app.js' %}"></script>
+        <script>
+            console.log('kkkk');
+            $(document).ready(function() {
+
+  console.log('jjjjj');
+                 $.ajax({
+                            type: 'post',
+                            url: "../data_receive.py",
+                            async: false,
+                            success: function (response) {
+                                console.log('jjjjj');
+                            }
+                        }).done(function (data) {
+                            console.log(data);
+                        });
+            });
+
+
+
+
+
+
+        </script>
+
+    </body>
+
+</html>
+
