@@ -13,14 +13,15 @@ def login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
+        user_type = request.POST.get('usertype')
 
         user = auth.authenticate(username=username, password=password)
 
-        if user is not None:
+        if user is not None and user_type == 'Manager':
             auth.login(request, user)
             return render(request, 'dashboard.html', {})
         else:
-            messages.info(request, 'Wrong username and password')
+            return render(request, 'login.html', {})
     else:
         return render(request, 'login.html', {})
 
