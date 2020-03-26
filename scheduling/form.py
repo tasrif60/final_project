@@ -1,14 +1,18 @@
+
 from django import forms
+from django.forms import Textarea
+
 from .models import Schedule, Profile
 
 
 class ScheduleForm(forms.ModelForm):
-    title = forms.CharField(max_length=100, )
-    employee = forms.ChoiceField()
-    start_time = forms.CharField(max_length=50)
-    end_time = forms.CharField(max_length=50)
-    note = forms.CharField(max_length=200)
+    all_data = Profile.objects.filter()
+
 
     class Meta:
         model = Schedule
         fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super(ScheduleForm, self).__init__(*args, **kwargs)
+        self.fields['employee'].empty_label = 'Select'

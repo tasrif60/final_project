@@ -1,2 +1,2 @@
-# SmartInventory
-This is final project of Software Engineering course
+# Software_inventory
+Software Engineering final project repo

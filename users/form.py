@@ -9,7 +9,6 @@ class LoginForm(forms.Form):
 
 
 class ProfileForm(forms.ModelForm):
-    employee_id = forms.IntegerField()
     first_name = forms.CharField(max_length=50)
     last_name = forms.CharField(max_length=50)
     phone_number = forms.CharField(max_length=50)

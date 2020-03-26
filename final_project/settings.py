@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'clear_cache',
     'rest_framework',
     'scheduling.apps.SchedulingConfig',
+    'django_extensions',
 
 ]
 

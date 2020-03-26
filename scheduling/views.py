@@ -25,3 +25,13 @@ def create_schedule(request, *args, **kwargs):
 
 def show_calender(request, *args, **kwargs):
     return render(request, 'calendar.html')
+
+def view_schedule(request, *args, **kwargs):
+    all_schedule = Schedule.objects.all()
+
+    context= {
+
+        'object': all_schedule
+
+    }
+    return render(request, 'view_schedule.html', context)

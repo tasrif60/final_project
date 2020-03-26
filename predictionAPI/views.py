@@ -48,7 +48,7 @@ def predict_svm(unit):
         return Response(e.args[0], status.HTTP_400_BAD_REQUEST)
 
 
-def form_view(request):
+def view_prediction(request):
     if request.method == 'POST':
         form = PredictForm(request.POST)
         if form.is_valid():
@@ -62,7 +62,7 @@ def form_view(request):
             DataFM = pd.DataFrame(myDictionary, index=[0])
             answer = text_value(DataFM)
             final_answer = predict_svm(answer)
-            messages.success(request, 'Inventory Status: {}'.format(final_answer))
+            messages.success(request, 'Prediction for the Next Month Inventory is : {}'.format(final_answer))
             form.save(commit=True)
 
     form = PredictForm()
